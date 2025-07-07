@@ -37,3 +37,15 @@ next-env.d.ts
 
 #ptau files
 circuits/*.ptau
+
+# artifacts
+/artifacts
+
+# typechain-types
+/typechain-types
+
+# cache
+/cache
+
+# distribution
+/dist
