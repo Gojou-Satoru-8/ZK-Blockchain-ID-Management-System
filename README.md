@@ -21,7 +21,8 @@
 5. Setup a network locally using `npm run hardhat:node` or `npx hardhat node --verbose`
 6. Now you have to deploy the contracts, use `npm run deploy` or `npx hardhat run --network localhost scripts/deploy.ts` to deploy it in the hardhat local network setup in the earlier step.
    Or in case you want to deploy into sepolia testnet, use `npm run deploysepolia` or `hardhat run --network sepolia scripts/deploy.ts`.
-7. Copy the contract address from the console output of deploy, and assign it to the CREDENTIALS_DB_ADDRESS field in the .env file
+7. Copy the contract address from the console output of deploy, create a .env file in the root directory of the project, and assign it to NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS.
+   - For example, NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS="0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
 8. Finally, run the Next.js app using `npm run dev`
 9. Before connecting an account, you must ensure you are logged into Metamask and connected to localhost.
 
