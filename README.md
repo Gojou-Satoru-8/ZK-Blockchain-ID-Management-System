@@ -10,21 +10,49 @@
 
 ## Project Setup and Deployment
 
-1. Move into the project directory, and run `npm install`
-2. Set executable permission for the `./scripts/compile-script.sh`, via `chmod 754 ./scripts/compile-script.sh`
-3. Compile circuit using:
+1.  Move into the project directory, and run:
 
-   - `npm run compilecircuit` or
-   - Running `scripts/compile-circuit.sh` script directly (via `./scripts/compile-circuit.sh`).
+    ```bash
+    npm install
+    ```
 
-4. (Optional) Run bump solidity script using `npm run bumpsolidityverifier`.
-5. Setup a network locally using `npm run hardhat:node` or `npx hardhat node --verbose`
-6. Now you have to deploy the contracts, use `npm run deploy` or `npx hardhat run --network localhost scripts/deploy.ts` to deploy it in the hardhat local network setup in the earlier step.
-   Or in case you want to deploy into sepolia testnet, use `npm run deploysepolia` or `hardhat run --network sepolia scripts/deploy.ts`.
-7. Copy the contract address from the console output of deploy, create a .env file in the root directory of the project, and assign it to NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS.
-   - For example, NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS="0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
-8. Finally, run the Next.js app using `npm run dev`
-9. Before connecting an account, you must ensure you are logged into Metamask and connected to localhost.
+2.  Set executable permission for the compile script:
+
+    ```bash
+    chmod 754 ./scripts/compile-circuit.sh
+    ```
+
+3.  Compile the circuit using either:
+
+    - **Default entropy (auto-generated):**
+
+      ```bash
+      npm run compilecircuit
+      ```
+
+    - **Custom entropy (recommended for production or multi-party contributions):**
+
+      ```bash
+      npm run compilecircuit -- "YourSecureRandomEntropyHere"
+      ```
+
+    - **Or run the script directly:**
+
+           ```bash
+           ./scripts/compile-circuit.sh "YourSecureRandomEntropyHere"
+           ```
+
+      > ⚠️ **Please note:**
+      > Circuit compilation and trusted setup can take a few minutes due to intensive cryptographic calculations.
+
+4.  (Optional) Run bump solidity script using `npm run bumpsolidityverifier`.
+5.  Setup a network locally using `npm run hardhat:node` or `npx hardhat node --verbose`
+6.  Now you have to deploy the contracts, use `npm run deploy` or `npx hardhat run --network localhost scripts/deploy.ts` to deploy it in the hardhat local network setup in the earlier step.
+    Or in case you want to deploy into sepolia testnet, use `npm run deploysepolia` or `hardhat run --network sepolia scripts/deploy.ts`.
+7.  Copy the contract address from the console output of deploy, create a .env file in the root directory of the project, and assign it to NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS.
+    - For example, NEXT_PUBLIC_CREDENTIALS_DB_ADDRESS="0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
+8.  Finally, run the Next.js app using `npm run dev`
+9.  Before connecting an account, you must ensure you are logged into Metamask and connected to localhost.
 
 ## Localhost configuration for Metamask Extension (Browser)
 

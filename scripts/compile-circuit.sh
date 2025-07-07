@@ -4,11 +4,22 @@ cd circuits
 
 mkdir zkVerifiableCredentialsDBCore
 
-if [ -f ./powersOfTau28_hez_final_19.ptau ]; then
-  echo "powersOfTau28_hez_final_19.ptau already exists. Skipping."
+if [ -f ./powersOfTau28_hez_final_16.ptau ]; then
+  echo "powersOfTau28_hez_final_16.ptau already exists. Skipping."
+
 else
-  echo 'Downloading powersOfTau28_hez_final_19.ptau'
-  wget https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_19.ptau
+  # echo 'Downloading powersOfTau28_hez_final_16.ptau'
+  # curl -L -o powersOfTau28_hez_final_16.ptau https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_16.ptau
+  echo 'Generating powersOfTau28_hez_final_16.ptau locally...'
+
+  snarkjs powersoftau new bn128 16 pot16_0000.ptau -v
+  
+  ENTROPY=${1:-"DefaultEntropy_$(date +%s)"}
+  echo "Using entropy: $ENTROPY"
+  snarkjs powersoftau contribute pot16_0000.ptau pot16_0001.ptau --name="Initial Contributor" -v -e="$ENTROPY"
+  
+  snarkjs powersoftau prepare phase2 pot16_0001.ptau powersOfTau28_hez_final_16.ptau -v
+  echo "✅ powersOfTau28_hez_final_16.ptau generation complete."
 fi
 
 echo "Compiling zkVerifiableCredentialsDBCore.circom..."
