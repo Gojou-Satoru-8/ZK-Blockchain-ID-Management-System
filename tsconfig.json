@@ -1,0 +1,51 @@
+{
+  "resolveJsonModule": true,
+  "esModuleInterop": true,
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "rootDirs": ["./src", "./scripts", "./test"],
+    "typeRoots": ["node_modules/@types", "types", "./customtypes"],
+    "plugins": [{ "name": "next" }],
+    "baseUrl": "./src", // Or "." if your source files are directly in the root
+    "paths": {
+      "@components/*": ["components/*"], // Alias for src/components
+      "@utils/*": ["utils/*"], // Alias for src/utils
+      "@styles/*": ["styles/*"], // Alias for src/styles
+      "@app/*": ["app/*"]
+    }
+  },
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "./artifacts/*",
+    "./credentials-src/*",
+    "./scripts/*",
+    "./tasks/*",
+    "./test/*",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "files": ["./hardhat.config.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs"
+    }
+  },
+  "exclude": ["node_modules"]
+}
