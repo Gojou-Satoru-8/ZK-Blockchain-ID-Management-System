@@ -10,8 +10,8 @@
     "test": "hardhat test",
     "hardhat:node": "hardhat node --verbose",
     "compile": "hardhat compile",
-    "deploy": "hardhat run --network localhost scripts/deploy.ts",
-    "deploysepolia": "hardhat run --network sepolia scripts/deploy.ts",
+    "deploy": "hardhat run --network localhost scripts/deploy.js",
+    "deploysepolia": "hardhat run --network sepolia scripts/deploy.js",
     "hardhat:test": "hardhat test",
     "compilecircuit": "./scripts/compile-circuit.sh",
     "bumpsolidityverifier": "node scripts/bump-solidity.js"

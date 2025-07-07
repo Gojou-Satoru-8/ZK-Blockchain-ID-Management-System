@@ -192,7 +192,11 @@ const Home: NextPage = () => {
 
         setWalletPublicKey("");
         setWalletConnected(true);
-      }
+      } else
+        toast("Provider not found", {
+          description: "Ensure Metamask is installed",
+          action: { label: "OK", onClick: () => {} },
+        });
     };
     configureAccountOnChange();
   }, [accounts, walletAddress]);
